@@ -11,7 +11,7 @@ Souqvia is an AI-powered product finder for Algerian e-commerce platforms like O
 
 ## How to Use
 
-1. Open the website: [https://yourprojectlink.vercel.app](https://yourprojectlink.vercel.app)
+1. Open the website: [https://Souqvia.vercel.app](https://Souqvia.vercel.app)
 2. Enter a product name in the search bar
 3. View recommended profitable products
 4. Apply filters for better results
