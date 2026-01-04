@@ -1,0 +1,10 @@
+Souqvia/
+├── index.html
+├── package.json
+├── vite.config.ts
+├── src/
+│   ├── main.tsx
+│   ├── App.tsx
+│   └── services/
+│       └── geminiService.ts
+└── README.md
