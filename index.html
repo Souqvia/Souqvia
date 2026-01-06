@@ -1,96 +1,15 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8" />
-  <title>Souqvia | AI Product Finder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #059669;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    button {
-      background: #059669;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    button:hover {
-      background: #047857;
-    }
-    .result {
-      margin-top: 20px;
-      white-space: pre-wrap;
-      background: #f1f5f9;
-      padding: 15px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-  </style>
-</head>
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Could not find root element to mount to");
+}
 
-<body>
-  <header>Souqvia – البحث الذكي عن المنتجات 🇩🇿</header>
-
-  <div class="container">
-    <label>ابحث عن منتج:</label>
-    <input id="query" placeholder="مثال: سماعة بلوتوث" />
-    <button onclick="search()">🔍 بحث</button>
-
-    <div id="output" class="result"></div>
-  </div>
-
-  <script>
-    async function search() {
-      const q = document.getElementById("query").value;
-      const out = document.getElementById("output");
-
-      if (!q) {
-        out.textContent = "❌ أدخل اسم منتج";
-        return;
-      }
-
-      out.textContent = "⏳ جاري التحليل...";
-
-      try {
-        const res = await fetch("/api/gemini", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: q })
-        });
-
-        const data = await res.json();
-        out.textContent = data.result || "لا توجد نتيجة";
-      } catch (e) {
-        out.textContent = "❌ خطأ في الاتصال بالخادم";
-      }
-    }
-  </script>
-</body>
-</html>
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
